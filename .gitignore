@@ -1,0 +1,35 @@
+# geometry files
+*.stl
+*.igs
+*.msh
+*.vtk
+*.iv
+
+# MAF files
+.msf
+
+# MATLAB
+*.asv
+Miranda2010_*ACS.m
+
+# folders
+__*
+/_old
+test_geometries/
+validation/*.xlsx
+validation/opensim_models/*_Geometries/
+validation/*_manual_*/
+validation/TLEM2_Carbone*/
+validation/_old/*
+
+*.zip
+
+# openSim files
+*.log
+*.osim
+# used for checking intermediate steps of modelling
+*.xml
+
+#vim files
+*.*~
+
