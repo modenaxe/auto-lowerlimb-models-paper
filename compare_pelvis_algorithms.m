@@ -6,7 +6,6 @@
 % ----------------------------------------------------------------------- %
 clear; clc; close all
 addpath(genpath('msk-STAPLE/STAPLE'));
-addpath('support_funcs');
 
 % SETTINGS
 %---------------------------
@@ -25,6 +24,9 @@ methods_list = {'Kai2014','STAPLE'};
 
 % create folder if required
 if ~isfolder(results_folder); mkdir(results_folder); end
+
+% inform reader about reference algorithm
+disp(['Reference algorithm for pelvis variation analysis is: ', reference_algorithm])
 
 nf = 1;
 for nb = 1:numel(bone_set)
@@ -52,7 +54,6 @@ for nb = 1:numel(bone_set)
         joint_centres = [JCS1.ground_pelvis.Origin, JCS2.ground_pelvis.Origin]';
         
         % reference algorithm
-        disp(['Reference algorithm for pelvis variation analysis is: ', reference_algorithm])
         switch reference_algorithm
             case 'STAPLE'
                 ref_JCS = JCS1;
