@@ -1,0 +1,3 @@
+[submodule "msk-STAPLE"]
+	path = msk-STAPLE
+	url = https://github.com/modenaxe/msk-STAPLE.git
