@@ -93,7 +93,7 @@ for nb = 1:numel(bone_set)
     
     % store cumulative results
     res_table2 = table(orig_diff_opt2, orig_dist_opt2, ang_diff_opt2, 'VariableNames',table_head([1,2,4]));
-    writetable(res_table2,fullfile(results_folder, [cur_bone,'_comparing_methods.xlsx']));
+    writetable(res_table2,fullfile(results_folder, [cur_bone,'_comparing_algorithms.xlsx']));
     
     clear orig_diff_opt2 orig_dist_opt2 ang_diff_opt2
 end

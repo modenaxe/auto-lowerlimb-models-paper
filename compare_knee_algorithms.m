@@ -114,7 +114,7 @@ for nb = 1:numel(bone_set)
             ang_diff(:,naxis) = acosd(joint_axis*ref_JCS.knee_r.V(:,naxis));
         end
         
-        % second option
+        % second option for reporting results (cumulative variables)
         row_ind = n_d:numel(dataset_set):numel(methods_list)*numel(dataset_set);
         orig_diff_opt2(row_ind,:) = orig_diff; %#ok<*SAGROW>
         orig_dist_opt2(row_ind,:) = orig_dist;
@@ -134,7 +134,7 @@ for nb = 1:numel(bone_set)
                           'VariableNames',table_head([1,2,4]));
         
         % write on results folder, where pelvis results also              
-        writetable(res_table2,fullfile(results_folder, [cur_bone,'_summary_of_method.xlsx']));
+        writetable(res_table2,fullfile(results_folder, [cur_bone,'_comparing_algorithms.xlsx']));
         
         % clear before analyzing next bone
         clear orig_diff_opt2 orig_dist_opt2 ang_diff_opt2
