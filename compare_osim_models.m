@@ -70,7 +70,7 @@ for n_d = 1:N_datasets
     validation_tables(n_d) = {cur_res_table};
     
     % write results on xlsx file
-    writetable(cur_res_table, [results_folder,filesep,'validation_results_',cur_dataset,'.xlsx']);
+    writetable(cur_res_table, [results_folder,filesep,'JCS_differences_',cur_dataset,'.xlsx']);
     
     % clear variables
     clear jc_offset ang_offset_child ang_offset_parent cur_res_table jc_offset_norm
