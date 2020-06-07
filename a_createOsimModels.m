@@ -5,70 +5,83 @@
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
 clear; clc; close all
-tic
-addpath(genpath('msk-STAPLE/STAPLE'));
+addpath(genpath('msk-Staple/STAPLE'));
 
-%--------------------------------------
-auto_models_folder = './opensim_models';
+%----------
+% SETTINGS 
+%----------
+output_models_folder = 'opensim_models';
+
+% datasets that you would like to process
 dataset_set = {'LHDL_CT', 'TLEM2_CT', 'ICL_MRI', 'JIA_MRI'};
-bone_geometry_folder = 'bone_geometries';
-body_list = {'pelvis_no_sacrum','femur_r','tibia_r','talus_r', 'calcn_r'};
+
+% cell array with the bone geometries that you would like to process
+bone_geometries_folder = 'bone_geometries';
+bones_list = {'pelvis_no_sacrum','femur_r','tibia_r','talus_r', 'calcn_r'};
 in_mm = 1;
-method = 'Modenese2018';
-method = 'auto2020';
+
+% visualization geometry format
+vis_geom_format = 'obj'; % options: 'stl'/'obj'
+
+% choose the definition of the joint coordinate systems (see documentation)
+modelling_method = 'Modenese2018';
 %--------------------------------------
+
 
 % create model folder if required
-if ~isfolder(auto_models_folder); mkdir(auto_models_folder); end
+if ~isfolder(output_models_folder); mkdir(output_models_folder); end
 
 for n_d = 1:numel(dataset_set)
     
     % setup folders
-    model_name = dataset_set{n_d};
-    main_ds_folder =  fullfile(bone_geometry_folder, dataset_set{n_d});
+    cur_dataset = dataset_set{n_d};
+    main_ds_folder =  fullfile(bone_geometries_folder, cur_dataset);
     
-    % geometry folder (STL)
+    % model and model file naming
+    model_name = ['auto',modelling_method,'_',dataset_set{n_d}];
+    model_file_name = [model_name, '.osim'];
+    
+    % options to read stl or mat(tri) files
     % tri_folder = fullfile(main_ds_folder,'stl');
-    % geometry folder (mat triangulations)
     tri_folder = fullfile(main_ds_folder,'tri');
     
-    vis_geom_folder=fullfile(main_ds_folder,'vtp');
+    % create geometry set structure for the entire dataset
+    geom_set = createTriGeomSet(bones_list, tri_folder);
     
-    % create geometrySet
-    geom_set = createTriGeomSet(body_list, tri_folder);
-    disp(['Geometries imported in ', num2str(toc), ' s']);
+    % create bone geometry folder for visualization
+    geometry_folder_name = [model_name, '_Geometry'];
+    geometry_folder_path = fullfile(output_models_folder,geometry_folder_name);
+    writeModelGeometyFolder(geom_set, geometry_folder_path, vis_geom_format);
+    
+    % initialize OpenSim model
+    osimModel = initializeOpenSimModel(model_name);
     
     % create bodies
-    osimModel = createBodiesFromTriGeomBoneSet(geom_set, vis_geom_folder);
+    osimModel = addBodiesFromTriGeomBoneSet(osimModel, geom_set, geometry_folder_name, vis_geom_format);
     
     % process bone geometries (compute joint parameters and identify markers)
     [JCS, BL, CS] = processTriGeomBoneSet(geom_set);
     
     % create joints
-    createLowerLimbJoints(osimModel, JCS, method);
+    createLowerLimbJoints(osimModel, JCS, modelling_method);
     
-    % add markers to
+%     % update mass properties
+%     mass = 76.5
+%     [0.142, 0.1, 0.0465, 0.0145]*mass
+    
+    % add markers to the bones
     addBoneLandmarksAsMarkers(osimModel, BL);
     
     % finalize connections
     osimModel.finalizeConnections();
     
-    % assign name
-    osimModel.setName([dataset_set{n_d},'_auto']);
+    % print
+    osimModel.print(fullfile(output_models_folder, model_file_name));
     
-    % assign STAPLE credits
-    osimModel.set_credits('Luca Modenese, Jean-Baptist Renault - created with STAPLE: Shared Tools for Automatic Personalised Lower Extremity modelling.')
-    
-    % print odel
-    osimModel.print(fullfile(auto_models_folder, [method,'_',model_name, '.osim']));
-    
-    % disown
-    osimModel.disownAllComponents();
-    
-    % display total time to create the model
+    % inform the user about time employed to create the model
     disp(['Model generated in ', num2str(toc)]);
     
 end
 
 % remove paths
-rmpath('msk-STAPLE/STAPLE');
+rmpath(genpath('msk-STAPLE/STAPLE'));
