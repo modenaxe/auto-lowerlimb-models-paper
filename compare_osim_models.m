@@ -26,7 +26,7 @@ for n_d = 1:N_datasets
     
     % identify appropriate models
     manual_model_name = ['manual_',cur_dataset,'.osim'];
-    auto_model_name = [modelling_method,'_',cur_dataset,'.osim'];
+    auto_model_name = ['auto',modelling_method,'_',dataset_set{n_d},'.osim'];
     
     % create joint structures for each model for easy comparison
     auto_model = createJointParamsMatStructFromOsimModel(fullfile(osim_model_folder,manual_model_name));
