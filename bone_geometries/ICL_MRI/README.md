@@ -1,6 +1,6 @@
 # Data from _in vivo_ MRI study.
 
-Skeleton from participant P0, copyright Imperial College London.
+Skeleton of one participant P0, copyright Imperial College London.
 
 Meshes smoothed using Meshlab.
 
