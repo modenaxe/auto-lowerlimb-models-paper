@@ -13,7 +13,10 @@ addpath(genpath('msk-Staple/STAPLE'));
 output_models_folder = 'opensim_models';
 
 % datasets that you would like to process
-dataset_set = {'LHDL_CT', 'TLEM2_CT', 'ICL_MRI', 'JIA_MRI'};
+dataset_set  = {'LHDL_CT', 'TLEM2_CT', 'ICL_MRI', 'JIA_MRI'};
+
+% mass required for mass estimation
+subj_mass_set = [64, 45, 87, 76.5];
 
 % cell array with the bone geometries that you would like to process
 bone_geometries_folder = 'bone_geometries';
@@ -65,9 +68,8 @@ for n_d = 1:numel(dataset_set)
     % create joints
     createLowerLimbJoints(osimModel, JCS, modelling_method);
     
-%     % update mass properties
-%     mass = 76.5
-%     [0.142, 0.1, 0.0465, 0.0145]*mass
+    % update mass properties
+    osimModel = assignMassPropsToSegments(osimModel, JCS, subj_mass_set(n_d));
     
     % add markers to the bones
     addBoneLandmarksAsMarkers(osimModel, BL);
@@ -80,7 +82,8 @@ for n_d = 1:numel(dataset_set)
     
     % inform the user about time employed to create the model
     disp(['Model generated in ', num2str(toc)]);
-    
+   
+    close all
 end
 
 % remove paths
