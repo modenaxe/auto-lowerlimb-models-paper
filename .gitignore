@@ -5,6 +5,7 @@
 *.vtk
 *.iv
 *.xlsx
+*.fig
 
 # MAF files
 .msf
