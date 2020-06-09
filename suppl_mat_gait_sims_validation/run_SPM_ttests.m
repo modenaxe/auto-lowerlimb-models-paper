@@ -20,7 +20,7 @@ addpath('./support_functions');
 
 %---------------------------------------------------------------------------
 % folder where results are stored
-mat_summary_folder = './_Mat_Summary';
+mat_summary_folder = './Mat_Summaries';
 % folder where to save the Figures
 figure_folder = 'Figures_Dynamic_Validation';
 % axis labels details
