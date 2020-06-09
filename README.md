@@ -31,14 +31,16 @@ In order to use the content of this repository you will need to:
 2. download [OpenSim 4.1](https://simtk.org/projects/opensim). You will use OpenSim to visualize the models. 
 3. set up the OpenSim 4.1 API for MATLAB. Required to run the provided scripts. Please refer to the OpenSim [documentation](https://simtk-confluence.stanford.edu/display/OpenSim/Scripting+with+Matlab).
 4. (optional) [OpenSim 3.3](https://simtk.org/projects/opensim). This can be used for visualising the manual models. To install OpenSim 3.3 go to the `Download` page of the provided link and click on `Previous releases`, as shown in [this screenshot](https://github.com/modenaxe/3d-muscles/blob/master/images/get_osim3.3.PNG). No API installation required for OpenSim 3.3.
+5. (optional) the [SPM1D](http://spm1d.org/) MATLAB package for statistical parametric mapping. It is used in the preliminary comparison of the gait simulations from automatic and manual models.
 
 # Contents
 This repository includes:
-1. bone geometries
-2. STAPLE package as git submodule
-3. manual models from previous research
-4. automatically generated models
-5. some gait simulations
+1. various [datasets of three-dimensional bone geometries](./bone_geometries) obtained from computed tomography and magnetic resonance imaging scans (medical images not provided).
+2. STAPLE package as git submodule (please refer to [this link](https://gist.github.com/modenaxe/c64974a53c72fb6cdebd380933b45d38) for the use of submodules...it's easy!
+3. OpenSim `manual models` created from the anatomical dataset using the codified approach of [Modenese et al. (2018)](https://doi.org/10.1016/j.jbiomech.2018.03.039).
+4. OpenSim `automatic models` generated using STAPLE with the data from the provided anatomical datasets as inputs.
+5. Gait data provided with the JIA-MRI dataset and downloadable from 
+6. Gait simulations generated from those data using both the manual and automatic model to compare the obtained joint kinematics and kinetics.
 5. MATLAB scripts to recreate the models and tables of the paper.
 
 ![modelling_workflow](./images/datasets.png)
@@ -63,6 +65,7 @@ the ./bone_geometries folder.
 
 # Running the MATLAB scripts
 The provided MATLAB scripts produce the results described in the following table:
+
 | Script name | Script action | Related item in the manuscript|
 | --- | --- | --- |
 | createAutomaticOsimModels.m | creates the automatic OpenSim model using the bone geometries from the `bone_geometries` folder | N/A |
@@ -71,10 +74,13 @@ The provided MATLAB scripts produce the results described in the following table
 | compare_pelvis_algorithms.m | compares, in all datasets, the joint coordinate systems estimated by `STAPLE-pelvis` and `Kai-pelvis` algorithms using the former as reference | Table 5 |
 | compare_knee_algorithms.m | compares, in all datasets, the joint coordinate systems estimated by all `GIBOC-`, `Kai-` and `Miranda-` algorithms at the distal femur and proximal tibia, i.e. at tibiofemoral joint. `GIBOC-Cylinder` is used as reference | Table 5 |
 | suppl_mat_tibiofemoral_alignment.m | compares, in all datasets, the joint coordinate systems estimated by all `GIBOC-tibia`, `Kai-tibia` and `Miranda-tibia` algorithms against the `GIBOC-Cylinder` algorithm for the femur to quantify the tibiofemoral alignment. | Table S1 (Supplementary Material) |
-| suppl_mat_compare_PCA_vs_Inertial.m | compares, in all datasets, the vertical anatomical axis of the tibia when computed using principal component analysis as in `Kai-tibia` or principal inertial axes as in all `GIBOC` algorithms for the tibia | Table S2 (Supplementary Material) |
+| suppl_mat_compare_PCA_vs_Inertial.m | compares, in all datasets, the vertical anatomical axis of the tibia when computed using principal component analysis as in `Kai-tibia` or principal inertial axes as in all `GIBOC` algorithms for the tibia | Table S2, Figure S3 (Supplementary Material) |
+| save_mat_summaries.m | summarises the results of gait simulations performed with the JIA-MRI automatic and manual model | N/A |
+| run_SPM_ttests.m | performes the statistical parametric mapping equivalent of paired, two-tailed t-tests between the joint angles and moments calculated with the automatic and manual models | Figures S4-S8 (Supplementary Material) |
 
-# Limitations and notes about reproducibility
-* The presented workflow produced models in OpenSim format, but their structure is actually generic.
-* These manual OpenSim models were generated using NMSBuilder v1.0. The NMSBuilder files are not shared because of their size (they include medical images).
-The complete NMSBuilder models can be obtained contacting the corresponding author of the publication.
-* The STAPLE pack is still in strong development, so documentation might be missing. Please refer to the main repository and to the examples included there.
+Other MATLAB scripts are provided in the `support_functions` folders, but the user is not supposed to interact with them.
+
+# Current limitations to reproducibility
+* The `Miranda-femur` and `Miranda-tibia` algorithms are not available with this package but they can be obtained contacting directly the authors of [the related publication](https://doi.org/10.1016/j.jbiomech.2010.01.036).
+* These manual OpenSim models were generated using NMSBuilder v1.0. The NMSBuilder files are not shared because of their size (they include medical images). The complete NMSBuilder models can be obtained contacting the corresponding author of the publication.
+* The STAPLE pack is still in strong development, so some key documentation might be missing. Please refer to the examples included the main STAPLE repository for now.
