@@ -5,7 +5,7 @@
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
 clear; clc; close all
-addpath(genpath('msk-Staple/STAPLE'));
+addpath(genpath('msk-STAPLE/STAPLE'));
 
 %----------
 % SETTINGS 

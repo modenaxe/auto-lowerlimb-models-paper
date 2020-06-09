@@ -6,7 +6,7 @@
 % ----------------------------------------------------------------------- %
 % computes the differences in mm between origin (models in m)
 clearvars;  close all
-addpath('support_funcs');
+addpath('support_functions');
 
 % SETTINGS
 %---------------------------
