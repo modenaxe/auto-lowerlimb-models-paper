@@ -12,7 +12,7 @@
 % implied. See the License for the specific language governing            %
 % permissions and limitations under the License.                          %
 %                                                                         %
-%    Author:   Luca Modenese,  July 2014                                  %
+%    Author:   Luca Modenese,  2020                                       %
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
 % Function that allows to retrieve the value of a specified variable whose
