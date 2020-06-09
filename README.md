@@ -12,9 +12,7 @@ This repository contains the data, models and the MATLAB scripts to inspect and 
   doi={}
 }
 ```
-The paper will be open access and available from [from the Journal website](TBA).
-
-Please cite the manuscript if you make use of these materials for your research or presentations.
+The paper will be open access and available [from the Journal website](TBA).
 
 ## Brief summary of the publication
 In our manuscript: 
