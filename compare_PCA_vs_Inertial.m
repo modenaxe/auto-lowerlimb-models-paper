@@ -31,18 +31,13 @@ for nb = 1:numel(cur_bone_set)
         cur_bone_name = strrep(cur_bone,'_',' ');
         
         % load the femur and split it on prox and dist
-        cur_tibia = load_mesh(cur_geom_file);
-        [ProxBone, DistBone] = cutLongBoneMesh(cur_tibia);
+        cur_triGeom = load_mesh(cur_geom_file);
+        [ProxBone, DistBone] = cutLongBoneMesh(cur_triGeom);
         unitedTibia = TriUnite(DistBone, ProxBone);
         
-        figure('Name',['comparison of options-',cur_dataset])
-        subplot(1,3,1);     quickPlotTriang(cur_tibia); title(['full ',cur_bone_name])
-        subplot(1,3,2);     quickPlotTriang(ProxBone); title(['proximal ',cur_bone_name])
-        subplot(1,3,3);     quickPlotTriang(unitedTibia); title(['epiphyses ',cur_bone_name])
-        
         % full geometry
-        V_all_PCA              = pca(cur_tibia.Points);
-        V_all_Inertia          = TriInertiaPpties( cur_tibia );
+        V_all_PCA              = pca(cur_triGeom.Points);
+        V_all_Inertia          = TriInertiaPpties( cur_triGeom );
         angle_PCA_Inertia(n_d) = acosd(dot(V_all_PCA(:,3), V_all_Inertia(:,3)));
         
         % partial geometry of interest (distal femur and proximal tibia)
@@ -53,6 +48,13 @@ for nb = 1:numel(cur_bone_set)
             part_bone = DistBone;
             kwd = 'distal';
         end
+        
+        figure('Name',['comparison of options-',cur_dataset])
+        subplot(1,3,1);     quickPlotTriang(cur_triGeom); title(['full ',cur_bone_name])
+        subplot(1,3,2);     quickPlotTriang(part_bone); title(['proximal ',cur_bone_name])
+        subplot(1,3,3);     quickPlotTriang(unitedTibia); title(['epiphyses ',cur_bone_name])
+        
+        % only epiphysis
         V_all_PCA = pca(part_bone.Points);
         V_all_Inertia_ProxTibia = TriInertiaPpties(part_bone);
         angle_PCA_Inertia_partial(n_d)     = acosd(dot(V_all_PCA(:,3), V_all_Inertia_ProxTibia(:,3)));
