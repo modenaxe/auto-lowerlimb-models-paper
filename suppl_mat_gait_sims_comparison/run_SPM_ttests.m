@@ -22,7 +22,7 @@ addpath('./support_functions');
 % folder where results are stored
 mat_summary_folder = './Mat_Summaries';
 % folder where to save the Figures
-figure_folder = 'Figures_Dynamic_Validation';
+figure_folder = 'Figures_gait_comparison';
 % axis labels details
 AxisFontSize = 12;
 AxisFontWeight = 'bold';
