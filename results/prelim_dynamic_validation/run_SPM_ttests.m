@@ -30,16 +30,17 @@ AxisFontWeight = 'bold';
 % OpenSim GUI for example).
 manual_model_ankle_offset = 4.234;
 % decide if you want to plot kinematics of kinetics
-% what_to_plot = 'kinetics';
-what_to_plot = 'kinematics';
+what_to_plot = 'kinetics';
+what_to_pl
+ot = 'kinematics';
 %---------------------------------------------------------------------------
 
 % create figure folder
 if ~isfolder(figure_folder); mkdir(figure_folder);  end
 
 % read results from manual and automatic model
-m = load([mat_summary_folder,'\','Summary_P3m6_R.mat']);
-a = load([mat_summary_folder,'\','Summary_P3m6_R_auto.mat']);
+m = load([mat_summary_folder,'\','Summary_P3m6_R_manual.mat']);
+a = load([mat_summary_folder,'\','Summary_P3m6_R_automatic.mat']);
 
 % extract summaries for both results
 manualSummary = m.SummaryBiomech;
@@ -94,6 +95,7 @@ for n_met = 1:Nc
     spm       = spm1d.stats.ttest2(YB, YA);
     spmi      = spm.inference(0.05, 'two_tailed', false, 'interp',true);
     disp(spmi)
+%     spmi.clusters{:}
     
     %(2) Plot:
     %%% plot mean and SD:

@@ -23,7 +23,7 @@ addpath(genpath('./support_functions'));
 % where the simulations are
 database_root_folder = '.\Dataset';
 % name of the models used in the simulations
-model_set = {'P3m6_R', 'P3m6_R_auto'};
+model_set = {'P3m6_R_manual', 'P3m6_R_automatic'};
 % where to store the summary
 mat_summary_folder = './_Mat_Summary';
 % mass of the subject represented by the automatic and manual model
