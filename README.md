@@ -60,13 +60,16 @@ the creation of the models from the matlab triangulations included in
 the ./bone_geometries folder.
 
 # Running the MATLAB scripts
-The provided MATLAB scripts are meant to be executed in sequential order following the alphabetical order of the first character.
-For scripts with the same initial character, the second character, which is a number, suggests the order of execution.
-So the order is:
-1. a_compute_biomech_moving_viapoints.m
-2. b1_plot_momArms_Fig4_as_Blemker2005.m
-3. b2_plot_momArms_Fig5_as_Blemker2005.m
-4. etc.
+The provided MATLAB scripts produce the results described in the following table:
+| Script | Effect | Related item in the manuscript|
+| --- | --- | --- |
+| createAutomaticOsimModels.m | creates the automatic OpenSim model using the bone geometries from the `bone_geometries` folder | N/A |
+| compare_osim_models.m | compares the joint coordinate systems of the automatically generated and the manual OpenSim models | Table 4 |
+| compare_hip_fit.m | compares the estimations of the centres of the femoral head for all available algorithms | Table 4 | 
+| compare_pelvis_algorithms.m | compares the joint coordinate systems estimated by STAPLE-Pelvis and Kai-Pelvis algorithms using the former as reference | Table 5 |
+| compare_knee_algorithms.m | compares the joint coordinate systems estimated by STAPLE-Pelvis and Kai-Pelvis algorithms | Table 5 |
+| suppl_mat_tibiofemoral_alignment.m | | Table S1 (Supplementary Material) |
+| suppl_mat_compare_PCA_vs_Inertial.m | | Table S2 (Supplementary Material) |
 
 # Limitations and notes about reproducibility
 * The presented workflow produced models in OpenSim format, but their structure is actually generic.
