@@ -23,7 +23,7 @@ In our manuscript:
 * We validated a workflow equivalent to the codified approach of [Modenese et al. (2018)](https://doi.org/10.1016/j.jbiomech.2018.03.039) by comparing lower limb models created following that methodology with the equivalente automatic workflow implemented in STAPLE. 
 * Finally, we presented some further functionality of STAPLE, including the extraction of articular surfaces and the possibility of streamlining the creation of skeletal models with the automatic technique for generating muscle anatomical models published by [Modenese and Kohout, 2020](http://link.springer.com/article/10.1007/s10439-020-02490-4).
 
-![modelling_workflow](TBA)
+![modelling_workflow](./images/workflow.png)
 
 # Requirements
 In order to use the content of this repository you will need to:
@@ -40,6 +40,8 @@ This repository includes:
 4. automatically generated models
 5. some gait simulations
 5. MATLAB scripts to recreate the models and tables of the paper.
+
+![modelling_workflow](./images/validation_datasets.png)
 
 # Visulizing the OpenSim models
 
@@ -61,15 +63,15 @@ the ./bone_geometries folder.
 
 # Running the MATLAB scripts
 The provided MATLAB scripts produce the results described in the following table:
-| Script | Effect | Related item in the manuscript|
+| Script name | Script action | Related item in the manuscript|
 | --- | --- | --- |
 | createAutomaticOsimModels.m | creates the automatic OpenSim model using the bone geometries from the `bone_geometries` folder | N/A |
 | compare_osim_models.m | compares the joint coordinate systems of the automatically generated and the manual OpenSim models | Table 4 |
 | compare_hip_fit.m | compares, in all datasets, the estimations of the centres of the femoral head provided by Kai-femur and GIBOC-tibia | Table 4 | 
 | compare_pelvis_algorithms.m | compares, in all datasets, the joint coordinate systems estimated by `STAPLE-pelvis` and `Kai-pelvis` algorithms using the former as reference | Table 5 |
-| compare_knee_algorithms.m | compares, in all datasets, the joint coordinate systems estimated by all `GIBOC-`, `Kai-` and `Miranda-` algorithms at the distal femur and proximal tibia, i.e. at tibiofemoral joint. GIBOC-Cylinder is used as reference | Table 5 |
-| suppl_mat_tibiofemoral_alignment.m | compares, in all datasets, the joint coordinate systems estimated by all `GIBOC-tibia`, `Kai-tibia` and `Miranda-tibia` algorithms against the GIBOC-femur algorithm to quantify the tibiofemoral alignment. | Table S1 (Supplementary Material) |
-| suppl_mat_compare_PCA_vs_Inertial.m | compares, in all datasets, the vertical anatomical axis of the tibia when computed using principal component analysis as in Kai-tibia or principal inertial axes as in GIBOC-tibia algorithms | Table S2 (Supplementary Material) |
+| compare_knee_algorithms.m | compares, in all datasets, the joint coordinate systems estimated by all `GIBOC-`, `Kai-` and `Miranda-` algorithms at the distal femur and proximal tibia, i.e. at tibiofemoral joint. `GIBOC-Cylinder` is used as reference | Table 5 |
+| suppl_mat_tibiofemoral_alignment.m | compares, in all datasets, the joint coordinate systems estimated by all `GIBOC-tibia`, `Kai-tibia` and `Miranda-tibia` algorithms against the `GIBOC-Cylinder` algorithm for the femur to quantify the tibiofemoral alignment. | Table S1 (Supplementary Material) |
+| suppl_mat_compare_PCA_vs_Inertial.m | compares, in all datasets, the vertical anatomical axis of the tibia when computed using principal component analysis as in `Kai-tibia` or principal inertial axes as in all `GIBOC` algorithms for the tibia | Table S2 (Supplementary Material) |
 
 # Limitations and notes about reproducibility
 * The presented workflow produced models in OpenSim format, but their structure is actually generic.
