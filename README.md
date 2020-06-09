@@ -41,7 +41,7 @@ This repository includes:
 5. some gait simulations
 5. MATLAB scripts to recreate the models and tables of the paper.
 
-![modelling_workflow](./images/validation_datasets.png)
+![modelling_workflow](./images/datasets.png)
 
 # Visulizing the OpenSim models
 
