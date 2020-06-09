@@ -41,7 +41,7 @@ for n_d = 1:numel(dataset_set)
     main_ds_folder =  fullfile(bone_geometries_folder, cur_dataset);
     
     % model and model file naming
-    model_name = ['auto',modelling_method,'_',dataset_set{n_d}];
+    model_name = ['automatic_',dataset_set{n_d}];
     model_file_name = [model_name, '.osim'];
     
     % options to read stl or mat(tri) files
@@ -52,7 +52,7 @@ for n_d = 1:numel(dataset_set)
     geom_set = createTriGeomSet(bones_list, tri_folder);
     
     % create bone geometry folder for visualization
-    geometry_folder_name = [model_name, '_Geometry'];
+    geometry_folder_name = [model_name, '_Geometries'];
     geometry_folder_path = fullfile(output_models_folder,geometry_folder_name);
     writeModelGeometriesFolder(geom_set, geometry_folder_path, vis_geom_format);
     
