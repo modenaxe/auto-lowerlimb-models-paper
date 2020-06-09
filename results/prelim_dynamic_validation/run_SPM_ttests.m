@@ -31,8 +31,7 @@ AxisFontWeight = 'bold';
 manual_model_ankle_offset = 4.234;
 % decide if you want to plot kinematics of kinetics
 what_to_plot = 'kinetics';
-what_to_pl
-ot = 'kinematics';
+what_to_plot = 'kinematics';
 %---------------------------------------------------------------------------
 
 % create figure folder
