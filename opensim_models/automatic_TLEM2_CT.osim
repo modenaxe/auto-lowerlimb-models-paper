@@ -88,6 +88,14 @@
 							<!--Name of geometry file.-->
 							<mesh_file>automatic_TLEM2_CT_Geometries\tibia_r.obj</mesh_file>
 						</Mesh>
+						<Mesh name="tibia_r_geom_2">
+							<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
+							<socket_frame>..</socket_frame>
+							<!--Scale factors in X, Y, Z directions respectively.-->
+							<scale_factors>0.001 0.001 0.001</scale_factors>
+							<!--Name of geometry file.-->
+							<mesh_file>automatic_TLEM2_CT_Geometries\patella_r.obj</mesh_file>
+						</Mesh>
 					</attached_geometry>
 					<!--The mass of the body (kg)-->
 					<mass>2.2145492918486269</mass>
