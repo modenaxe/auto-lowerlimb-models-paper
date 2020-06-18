@@ -17,6 +17,7 @@
 % ----------------------------------------------------------------------- %
 clear; clc; close all
 addpath(genpath('msk-STAPLE/STAPLE'));
+addpath('support_functions')
 
 %----------
 % SETTINGS 
@@ -73,6 +74,10 @@ for n_d = 1:numel(dataset_set)
     % create bodies
     osimModel = addBodiesFromTriGeomBoneSet(osimModel, geom_set, geometry_folder_name, vis_geom_format);
     
+    % add patella to tibia (this will be replaced by a proper joint and
+    % dealt with the other joints in the future).
+    attachPatellaGeom(osimModel, tri_folder, geometry_folder_path, geometry_folder_name, vis_geom_format)
+    
     % process bone geometries (compute joint parameters and identify markers)
     [JCS, BL, CS] = processTriGeomBoneSet(geom_set);
     
@@ -99,3 +104,4 @@ end
 
 % remove paths
 rmpath(genpath('msk-STAPLE/STAPLE'));
+rmpath('support_functions')
