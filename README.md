@@ -33,7 +33,7 @@ In order to use the content of this repository you will need to:
 
 # Contents
 This repository includes:
-1. various [datasets of three-dimensional bone geometries](./bone_geometries) obtained from computed tomography and magnetic resonance imaging scans (medical images not provided). Some open access publications where these models had been employed in previous research are [shared with this repository](/manual_models_ref_pubs).
+1. various [datasets of three-dimensional bone geometries](./bone_geometries) obtained from computed tomography and magnetic resonance imaging scans (medical images not provided). Some open access publications where these models had been employed in previous research are [shared with this repository](/docs).
 2. STAPLE package as git submodule (please refer to [this link](https://gist.github.com/modenaxe/c64974a53c72fb6cdebd380933b45d38) for the use of submodules...it's easy!
 3. OpenSim `manual models` created from the anatomical dataset using the codified approach of [Modenese et al. (2018)](https://doi.org/10.1016/j.jbiomech.2018.03.039).
 4. OpenSim `automatic models` generated using STAPLE with the data from the provided anatomical datasets as inputs.
