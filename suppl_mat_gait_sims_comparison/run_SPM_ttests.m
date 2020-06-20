@@ -31,7 +31,7 @@ AxisFontWeight = 'bold';
 manual_model_ankle_offset = 4.234;
 % decide if you want to plot kinematics of kinetics
 what_to_plot = 'kinetics';
-what_to_plot = 'kinematics';
+% what_to_plot = 'kinematics';
 %---------------------------------------------------------------------------
 
 % create figure folder
@@ -53,13 +53,33 @@ switch what_to_plot
         autoResults   = autoSummary.KINEMATICS;
         list_comparisons = manualSummary.KINEMATICS.colheaders;
         % plot labels for kinematics
-        xlabel_set = {'Gait cycle [%]'};ylabel_set = {'Joint Angles [deg]','SPM \{ t \}','Joint Angles [deg]','SPM \{ t \}','Joint Angles [deg]','SPM \{ t \}'};
+        xlabel_set = {'Gait cycle [%]'};
+        ylabel_set = {  'posterior(-)       anterior(+)','SPM \{ t \}',...
+                        'down(-)      up(+)','SPM \{ t \}',...
+                        'external(-)      internal(+)','SPM \{ t \}',...
+                        'extension(-)     flexion(+)','SPM \{ t \}',...
+                        'abduction(-) adduction(+)','SPM \{ t \}',...
+                        'external(-)      internal(+)','SPM \{ t \}',...
+                        'extension(-)    flexion(+)','SPM \{ t \}',...
+                        'plantarflexion(-)  dorsiflexion(+)','SPM \{ t \}',...
+                        'eversion(-)  inversion(+)','SPM \{ t \}'};
+         title_set = {  'Pelvic tilt [deg]','Pelvic rotation [deg]','Pelvic list [deg]','Hip Flex/Extension [deg]','Hip Ad/Abduction [deg]',...
+                        'Hip Int/External rotation [deg]', 'Knee Flex/Extension [deg]','Ankle Dorsi/Plantarflexion [deg]', 'Subtalar Eversion/Inversion [deg]'};
     case 'kinetics'
         manualResults = manualSummary.KINETICS;
         autoResults   = autoSummary.KINETICS;
         list_comparisons = manualSummary.KINETICS.colheaders;
         % plot labels for kinetics
-        xlabel_set = {'Gait cycle [%]'};ylabel_set = {'Joint Moments [Nm/kg]','SPM \{ t \}','Joint Moments [Nm/kg]','SPM \{ t \}','Joint Moments [Nm/kg]','SPM \{ t \}'};
+        xlabel_set = {'Gait cycle [%]'};
+        ylabel_set = {'flexion(-)     extension(+)','SPM \{ t \}',... 
+                      'adduction(-)    abduction(+)','SPM \{ t \}',...
+                      'internal(-)     external(+)','SPM \{ t \}',...
+                      'flexion(-)     extension(+)','SPM \{ t \}',...
+                      'dorsiflexion(-)    plantarflexion(+)','SPM \{ t \}',...
+                      'inversion(-)  eversion(+)','SPM \{ t \}'};
+        title_set = {'Hip Flex/Extension Moment [Nm/kg]','Hip Ad/Abduction Moment [Nm/kg]',...
+                     'Hip Int/External Rotation Moment [Nm/kg]','Knee Flex/Extension Moment [Nm/kg]',...
+                     'Ankle Dorsi/Planta Moment [Nm/kg]', 'Subtalar Eversion/Inversion [Nm/kg]'};
 end
 
 % vector of toe offs from the simulated trials
@@ -70,7 +90,8 @@ ToeOffV = manualSummary.ToeOffV_R;
 figure_handle = figure('position', [0 0 1440 900]);
 n_fig=1;
 n_plot=1;
-
+n_label = 1;
+n_label_old = n_label;
 % list of variables to be compared
 Nc = numel(list_comparisons);
 
@@ -85,14 +106,14 @@ for n_met = 1:Nc
     
     % apply same offset of the manual model to the automated results
     % otherwise the comparison is not fair (even better would have been
-    % addinf it to the manual model)
+    % addinG it to the manual model)
     if strcmp(cur_var_name, 'ankle_angle') && strcmp(what_to_plot,'kinematics')
         YB=YB-manual_model_ankle_offset;
     end
     
     %(1) Conduct SPM analysis:
     spm       = spm1d.stats.ttest2(YB, YA);
-    spmi      = spm.inference(0.05, 'two_tailed', false, 'interp',true);
+    spmi      = spm.inference(0.05, 'two_tailed', true, 'interp',true);
     disp(spmi)
 %     spmi.clusters{:}
     
@@ -102,7 +123,7 @@ for n_met = 1:Nc
     spm1d.plot.plot_meanSD(YA, 'color','k'); hold on
     spm1d.plot.plot_meanSD(YB, 'color','r'); hold on
     % add title, zero line and toe off line
-    title(strrep(cur_var_name,'_',' '), 'FontSize', 16)
+    title(title_set{n_label}, 'FontSize', 16)
     plotHorizontalLine(gca, 0, 'k'); hold on
     plotVerticalLine(gca, mean(ToeOffV), 'b');
     box off
@@ -119,16 +140,18 @@ for n_met = 1:Nc
     % finalise and store figure if the subplot is complete
     if n_plot>6
         % add labels
-        addSubplotXYLabels(figure_handle, xlabel_set, ylabel_set, 16, 'normal')
+        addSubplotXYLabels(figure_handle, xlabel_set, ylabel_set(n_label_old:n_label*2), 13, 'normal')
         % save figure
-        set(figure_handle,'PaperPositionMode','Auto');
-        saveas(figure_handle, fullfile(figure_folder,['Suppl_',what_to_plot,'_Fig',num2str(n_fig),'.fig']));
+%         set(figure_handle,'PaperPositionMode','Auto');
+%         saveas(figure_handle, fullfile(figure_folder,['Suppl_',what_to_plot,'_Fig',num2str(n_fig),'.fig']));
         % modify/reinitialise flow control variables
         n_fig=n_fig+1;
         n_plot = 1;
+        n_label_old=n_label*2+1;
         % avoid generating figure if comparisons are over.
         if n_met<Nc
             figure_handle = figure('position', [0 0 1440 900]);
         end
     end
+    n_label = n_label+1;
 end
