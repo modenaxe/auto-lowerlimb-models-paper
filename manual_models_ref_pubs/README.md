@@ -1,4 +1,6 @@
-# Publications and conference contribution for which the manual models were built
+# Publications and conference 
+
+This folder includes some open access contributions in which manual models built from the considered datasets were created or employed.
 
 
 | Model name | Contribution for which the model was built |
