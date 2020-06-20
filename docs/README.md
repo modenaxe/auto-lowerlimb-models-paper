@@ -1,4 +1,4 @@
-# Publications and conference 
+# Publications and conferences
 
 This folder includes some open access contributions in which manual models built from the considered datasets were created or employed.
 
