@@ -73,8 +73,6 @@ The provided MATLAB scripts produce the results described in the following table
 | compare_knee_algorithms.m | compares, in all datasets, the joint coordinate systems estimated by all `GIBOC-`, `Kai-` and `Miranda-` algorithms at the distal femur and proximal tibia, i.e. at tibiofemoral joint. `GIBOC-Cylinder` is used as reference | Table 5 |
 | suppl_mat_tibiofemoral_alignment.m | compares, in all datasets, the joint coordinate systems estimated by all `GIBOC-tibia`, `Kai-tibia` and `Miranda-tibia` algorithms against the `GIBOC-Cylinder` algorithm for the femur to quantify the tibiofemoral alignment. | Table S1 (Supplementary Material) |
 | suppl_mat_compare_PCA_vs_Inertial.m | compares, in all datasets, the vertical anatomical axis of the tibia when computed using principal component analysis as in `Kai-tibia` or principal inertial axes as in all `GIBOC` algorithms for the tibia | Table S2, Figure S3 (Supplementary Material) |
-| save_mat_summaries.m | summarises the results of gait simulations performed with the JIA-MRI automatic and manual model | N/A |
-| run_SPM_ttests.m | performes the statistical parametric mapping equivalent of paired, two-tailed t-tests between the joint angles and moments calculated with the automatic and manual models | Figures S4-S8 (Supplementary Material) |
 
 Other MATLAB scripts are provided in the `support_functions` folders, but the user is not supposed to interact with them.
 
