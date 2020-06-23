@@ -15,6 +15,10 @@
 %    Author:   Luca Modenese,  2020                                       %
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
+% This script computes the pelvic reference systems for STAPLE and Kai 
+% algorithms and compares them using STAPLE as reference. Results
+% are reported in the manuscript (Table 5).
+% ----------------------------------------------------------------------- %
 clear; clc; close all
 addpath(genpath('msk-STAPLE/STAPLE'));
 

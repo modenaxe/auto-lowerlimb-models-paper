@@ -15,6 +15,9 @@
 %    Author:   Luca Modenese,  2020                                       %
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
+% This script automatically creates the models considered in the manuscript
+% from the available datasets using STAPLE.
+% ----------------------------------------------------------------------- %
 clear; clc; close all
 addpath(genpath('msk-STAPLE/STAPLE'));
 addpath('support_functions')
@@ -97,8 +100,9 @@ for n_d = 1:numel(dataset_set)
     osimModel.print(fullfile(output_models_folder, model_file_name));
     
     % inform the user about time employed to create the model
+    disp('------------------------')
     disp(['Model generated in ', num2str(toc)]);
-   
+    disp('------------------------')
     close all
 end
 

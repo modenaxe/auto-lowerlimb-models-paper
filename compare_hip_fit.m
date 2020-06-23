@@ -15,8 +15,11 @@
 %    Author:   Luca Modenese,  2020                                       %
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
-% NB: I know that all femurs have Z pointing cranially. In a completely
-% generic case I should have used femur_guess_CS.m.
+% This script compares the hip joint estimations from GIBOC and Kai2014
+% algorithms. Please note that in this script I use the information that 
+% all femurs have Z pointing cranially. In a completely generic script 
+% I should have used femur_guess_CS.m to double check that.
+% These results are not reported in the manuscript.
 % ----------------------------------------------------------------------- %
 
 clear; clc; close all

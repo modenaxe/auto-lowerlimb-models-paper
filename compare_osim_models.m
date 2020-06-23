@@ -15,14 +15,19 @@
 %    Author:   Luca Modenese,  2020                                       %
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
-% computes the differences in mm between origin (models in m)
+% For all considered manual and automatic OpenSim models, all joint
+% reference systems are extracted and compared calculating:
+% 1) linear distance between the origins of corresponding reference systems
+% 2) angular differences between corresponding axes
+% The results are reported in Table 3 of the manuscript.
+% ----------------------------------------------------------------------- %
 clearvars;  close all
 addpath('support_functions');
 
 % SETTINGS
 %---------------------------
 dataset_set = {'LHDL_CT', 'TLEM2_CT', 'ICL_MRI', 'JIA_MRI'};
-modelling_method = 'Modenese2018';
+modelling_method = 'automatic';
 osim_model_folder = 'opensim_models';
 results_folder = 'results\JCS_validation';
 %---------------------------
@@ -37,13 +42,13 @@ for n_d = 1:N_datasets
     
     % identify appropriate models
     manual_model_name = ['manual_',cur_dataset,'.osim'];
-    auto_model_name = ['auto',modelling_method,'_',dataset_set{n_d},'.osim'];
+    auto_model_name = [modelling_method,'_',dataset_set{n_d},'.osim'];
     
     % create joint structures for each model for easy comparison
     auto_model = createJointParamsMatStructFromOsimModel(fullfile(osim_model_folder,manual_model_name));
     manual_model = createJointParamsMatStructFromOsimModel(fullfile(osim_model_folder,auto_model_name));
     
-    % check if ground ref syst is identical(
+    % check if ground ref syst is identical
     % essential for comparison (model built in same reference frame)
     assert(isequal(auto_model.ground_pelvis.parent-manual_model.ground_pelvis.parent, zeros(4)))
     
@@ -56,7 +61,7 @@ for n_d = 1:N_datasets
         cur_joint_name = joint_list{n};
         
         % compute joint centre offsets in mm (identical for child and parent)
-        jc_offset(n, :) = (auto_model.(cur_joint_name).child(1:3,4) - manual_model.(cur_joint_name).child(1:3,4))*1000;
+        jc_offset(n, :) = (auto_model.(cur_joint_name).child(1:3,4) - manual_model.(cur_joint_name).child(1:3,4))*1000; %#ok<*SAGROW>
         jc_offset_norm(n,1) = norm(jc_offset(n, :));
         
         % compute angular offsets for child reference systems
@@ -97,4 +102,4 @@ for nt = 1:N_datasets
     disp(validation_tables{nt})
 end
 
-rmpath('support_funcs');
+rmpath('support_functions');

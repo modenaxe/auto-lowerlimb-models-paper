@@ -15,6 +15,10 @@
 %    Author:   Luca Modenese,  2020                                       %
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
+% This script that compute the joint reference systems at the distal femur
+% and proximal tibia and compares them with a reference estimation. Results
+% are reported in the manuscript (Table 5).
+% ----------------------------------------------------------------------- %
 clear; clc; close all
 addpath(genpath('msk-STAPLE/STAPLE'));
 
