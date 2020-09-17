@@ -15,6 +15,11 @@
 %    Author:   Luca Modenese,  2020                                       %
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
+%
+% NOTE: Kai-algorithms require tibia and fibula, GIBOC works on tibia only.
+% On STAPLE the fibula is removed automatically when using GIBOC.
+% ----------------------------------------------------------------------- %
+
 clear; clc; close all
 addpath(genpath('msk-STAPLE/STAPLE'));
 
@@ -45,10 +50,9 @@ for n_d = 1:numel(dataset_set)
     fem_triang = load_mesh(cur_fem_file);
     [~, ref_JCSFem] = GIBOC_femur(fem_triang, [], 'cylinder', results_plots);
     
-    % load the femur and split it on prox and dist
+    % load the tibia
     cur_geom_file = fullfile(main_ds_folder,'tri',  'tibia_r');
     tibia_triang = load_mesh(cur_geom_file);
-    [ProxFem, DistFem] = cutLongBoneMesh(tibia_triang);
     
     % Get eigen vectors V_all of the Femur 3D geometry and volumetric center
     [ CS.V_all, CS.CenterVol ] = TriInertiaPpties(tibia_triang);
