@@ -23,7 +23,7 @@ addpath('./support_functions');
 mat_summary_folder = './Mat_Summaries';
 stats_results_folder = './Stats_Results';
 % folder where to save the Figures
-figure_folder = 'Figures_gait_statistics';
+figure_folder = 'Figures_suppl_SPM_stats';
 % axis labels details
 AxisFontSize = 12;
 AxisFontWeight = 'bold';
