@@ -29,7 +29,8 @@ for n_var = 1:N_var
     axis_handle(n_var) = subplot(row, col, n_var);
     % set what to plot
     curr_var = myStruct.colheaders{n_var};
-    % plot and extract info
+    % plot and extract info (OUTPUT variable is left empty here, we just
+    % want to plot)
     [OUTPUT(n_var), axis_handle(n_var)]  = analyzeVariable(myStruct, curr_var ,['plot=',what_to_plot],axis_handle(n_var),['Colour=',line_color], 'reverse=n');
 end
 
