@@ -25,7 +25,7 @@ database_root_folder = '.\Dataset';
 % name of the models used in the simulations
 model_set = {'P3m6_R_manual', 'P3m6_R_automatic'};
 % where to store the summary
-mat_summary_folder = './Mat_Summaries';
+mat_summary_folder = './Dataset_Mat_Summaries';
 % mass of the subject represented by the automatic and manual model
 bodyMass = 76.5; %kg
 %---------------------------------------------------------------------------

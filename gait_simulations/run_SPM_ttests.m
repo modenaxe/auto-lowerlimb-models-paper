@@ -20,10 +20,10 @@ addpath('./support_functions');
 
 %---------------------------------------------------------------------------
 % folder where results are stored
-mat_summary_folder = './Mat_Summaries';
+mat_summary_folder = './Dataset_Mat_Summaries';
 stats_results_folder = './Stats_Results';
 % folder where to save the Figures
-figure_folder = 'Figures_suppl_SPM_stats';
+figure_folder = 'Figures_supplem_SPM_stats';
 % axis labels details
 AxisFontSize = 12;
 AxisFontWeight = 'bold';
@@ -169,6 +169,7 @@ for n_met = 1:Nc
         % save figure
         set(figure_handle,'PaperPositionMode','Auto');
         saveas(figure_handle, fullfile(figure_folder,['Suppl_',what_to_plot,'_Fig',num2str(n_fig),'.fig']));
+        saveas(figure_handle, fullfile(figure_folder,['Suppl_',what_to_plot,'_Fig',num2str(n_fig),'.png']));
         % modify/reinitialise flow control variables
         n_fig=n_fig+1;
         n_plot = 1;
