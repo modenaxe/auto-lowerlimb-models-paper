@@ -72,7 +72,7 @@ plotVerticalLineOnAllSubplots(H_Kin, ToeOffV,'b'); hold on
 % add titles
 addSubplotTitles(H_Kin, title_set,14)
 
-AdjustFigureKinematics(H_Kin)
+adjustFigureKinematics(H_Kin)
 
 set(H_Kin,'PaperPositionMode','Auto');
 saveas(H_Kin, fullfile(figure_folder,'Figure4_kinematics_comparison.fig'));
@@ -102,7 +102,7 @@ plotVerticalLineOnAllSubplots(H_JMom, ToeOffV,'b'); hold on
 % add titles
 addSubplotTitles(H_JMom, title_set,14)
 
-AdjustFigureKineticsGRFPower(H_JMom)
+adjustFigureKinetics(H_JMom)
 set(H_JMom,'PaperPositionMode','Auto');
 saveas(H_JMom, fullfile(figure_folder,'Figure5_kinetics_comparison.fig'));
 saveas(H_JMom, fullfile(figure_folder,'Figure5_kinetics_comparison.png'));
