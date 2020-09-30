@@ -67,7 +67,7 @@ H_Kin = figure('position', [0 0 1440 900]);
                         'plantarflexion(-)  dorsiflexion(+)',...
                         'eversion(-)     inversion(+)'};
          title_set = {  'Pelvic tilt [deg]','Pelvic rotation [deg]','Pelvic list [deg]','Hip Flex/Extension [deg]','Hip Ad/Abduction [deg]',...
-                        'Hip Int/External rotation [deg]', 'Knee Flex/Extension [deg]','Ankle Dorsi/Plantarflexion [deg]', 'Subtalar Eversion/Inversion [deg]'};
+                        'Hip Int/External rotation [deg]', 'Knee Flex/Extension [deg]','Ankle Dorsi/Plantarflexion [deg]', 'Subtalar Ev/Inversion [deg]'};
 subplot_titles = {};
 [~, H_Kin, ~]  = plotBiomechVars(m.SummaryBiomech.KINEMATICS, H_Kin, what_to_plot, xlabel_set, ylabel_set, subplot_titles,'k');hold on
 [~, H_Kin, ~]  = plotBiomechVars(a.SummaryBiomech.KINEMATICS, H_Kin, what_to_plot, xlabel_set, ylabel_set, subplot_titles, 'r');
@@ -110,7 +110,7 @@ addSubplotTitles(H_JMom, title_set,14)
 adjustFigureKinetics(H_JMom)
 set(H_JMom,'PaperPositionMode','Auto');
 saveas(H_JMom, fullfile(figure_folder,'Figure5_kinetics_comparison.fig'));
-saveas(H_JMom, fullfile(figure_folder,'Figure5_kinetics_comparison.png'));
+% saveas(H_JMom, fullfile(figure_folder,'Figure5_kinetics_comparison.png'));
 
 % free the memory
 delete(H_Kin); delete(H_JMom);

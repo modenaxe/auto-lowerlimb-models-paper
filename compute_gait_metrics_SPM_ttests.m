@@ -25,7 +25,7 @@ addpath('./support_functions');
 %---------------------------------------------------------------------------
 % folder where results are stored
 mat_summary_folder = './gait_simulations/Dataset_Mat_Summaries';
-stats_results_folder = './results';
+stats_results_folder = './results/gait_sims_analysis';
 % folder where to save the Figures
 figure_folder = './results/Figures_S4-S8_SPM_stats';
 % axis labels details
@@ -88,7 +88,7 @@ switch what_to_plot
                       'inversion(-)  eversion(+)','SPM \{ t \}'};
         title_set = {'Hip Flex/Extension Moment [Nm/kg]','Hip Ad/Abduction Moment [Nm/kg]',...
                      'Hip Int/External Rotation Moment [Nm/kg]','Knee Flex/Extension Moment [Nm/kg]',...
-                     'Ankle Dorsi/Plantar Moment [Nm/kg]', 'Subtalar Eversion/Inversion [Nm/kg]'};
+                     'Ankle Dorsi/Plantar Moment [Nm/kg]', 'Subtalar Ev/Inversion Moment [Nm/kg]'};
 end
 
 % vector of toe offs from the simulated trials
@@ -173,7 +173,7 @@ for n_met = 1:Nc
         % save figure
         set(figure_handle,'PaperPositionMode','Auto');
         saveas(figure_handle, fullfile(figure_folder,['Suppl_',what_to_plot,'_Fig',num2str(n_fig),'.fig']));
-        saveas(figure_handle, fullfile(figure_folder,['Suppl_',what_to_plot,'_Fig',num2str(n_fig),'.png']));
+%         saveas(figure_handle, fullfile(figure_folder,['Suppl_',what_to_plot,'_Fig',num2str(n_fig),'.png']));
         % modify/reinitialise flow control variables
         n_fig=n_fig+1;
         n_plot = 1;
@@ -203,7 +203,7 @@ stats_tables(n_plot_type) = {cur_res_table};
 clear report_corrcoeff report_RMSE report_clusters
 end
 
-close all
+% close all
 disp('----------')
 disp('Kinematics')
 disp('----------')
