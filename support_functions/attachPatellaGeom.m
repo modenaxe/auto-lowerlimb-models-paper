@@ -22,6 +22,7 @@
 % in the manual models either.
 % More sophisticated methods are in developement but require more
 % development before we can present them in a publication.
+% ----------------------------------------------------------------------- %
 function     attachPatellaGeom(osimModel, tri_folder, geometry_folder_path, geometry_folder_name, vis_geom_format)
 
 % OpenSim libraries

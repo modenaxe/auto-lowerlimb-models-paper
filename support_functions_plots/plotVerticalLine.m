@@ -16,6 +16,7 @@
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
 % Plots a vertical line as long as the Y axis.
+% ----------------------------------------------------------------------- %
 function done = plotVerticalLine(ax_h, Vvalue, color)
 
 if isempty(ax_h)==1

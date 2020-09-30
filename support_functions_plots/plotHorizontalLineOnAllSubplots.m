@@ -17,6 +17,7 @@
 % ----------------------------------------------------------------------- %
 % Plots a horizontal line on all subplots presents in the figure identified
 % by the handle.
+% ----------------------------------------------------------------------- %
 function plotHorizontalLineOnAllSubplots(figure_handle, Hvalue, varargin)
 
 

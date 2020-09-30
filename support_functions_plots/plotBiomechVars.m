@@ -18,6 +18,7 @@
 % attempt of generic, high-level function to plot a biomechanical variable
 % quickly on a standard (3 column) subplot. Allows control on basic options
 % such as labels, font size, etc.
+% ----------------------------------------------------------------------- %
 function [OUTPUT, figure_handle, axis_handle]  = plotBiomechVars(myStruct, figure_handle, what_to_plot, xlabel_set, ylabel_set, subplot_titles, line_color) 
 
 N_var = length(myStruct.colheaders);

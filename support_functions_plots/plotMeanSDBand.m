@@ -19,8 +19,8 @@
 % ----------------------------------------------------------------------- %
 % From a matrix of trials plots mean and std as solid line plus shaded area
 % of standard deviations. The matrix is normally [time, trial_1, trial_2, etc.]
-% with variables being column vectors.
-
+% with trials variables being column vectors and first column being time.
+% ----------------------------------------------------------------------- %
 function [plot_handle, M, STD, LB, UB ]= plotMeanSDBand(MatrixOfTrial,color, varargin)
 
 % if the data comes from a 3D matrix ([time, trial, gait_variables]

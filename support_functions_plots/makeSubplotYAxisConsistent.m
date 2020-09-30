@@ -17,6 +17,7 @@
 % ----------------------------------------------------------------------- %
 % Adjusts the Y axis of subplots in a figure so that they all have the same
 % min and max limits.
+% ----------------------------------------------------------------------- %
 function [figure_handle, axes_min, axes_max] = makeSubplotYAxisConsistent(figure_handle)
 
 % differs from makeSubplotRowYAxisConsistent as all rows have same y axis

@@ -15,6 +15,9 @@
 %    Author:   Luca Modenese,  2020                                       %
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
+% creates titles for the subplots of the figure identified by the
+% figure_handle using the title_set.
+% ----------------------------------------------------------------------- %
 function figure_handle = addSubplotTitles(figure_handle, title_set, varargin)
 
 % control on font size

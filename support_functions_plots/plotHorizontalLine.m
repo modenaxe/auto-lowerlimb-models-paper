@@ -16,6 +16,7 @@
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
 % Plots a horizontal line as long as the X axis.
+% ----------------------------------------------------------------------- %
 function done = plotHorizontalLine(ax_h, Hvalue, color)
 
 if isempty(ax_h)==1

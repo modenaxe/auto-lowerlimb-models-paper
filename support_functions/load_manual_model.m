@@ -15,13 +15,18 @@
 %    Author:   Luca Modenese,  2020                                       %
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
+% function with the main joint parameters of the manual models. Actually
+% not used because those parameters are read directly from the osim files.
+%
+% LEGACY CODE
+% ----------------------------------------------------------------------- %
 function model = load_manual_model(model_name)
 
 % This function collects the geometrical information from models previously
 % built
 switch model_name
     
-    case 'P0_MRI'
+    case 'ICL-MRI'
         % ground-pelvis
         model.ground_pelvis.parent = eye(4);
         model.ground_pelvis.child = [0.0251285 -0.0426211 0.998775 -14.0039
@@ -68,7 +73,7 @@ switch model_name
         model.subtalar_r.child = model.subtalar_r.parent;
 
 
-    case 'LHDL'
+    case 'LHDL-CT'
         %------------
         % LHDL
         %------------
@@ -129,7 +134,7 @@ switch model_name
         %------------
         % TLEM2
         %------------
-    case 'TLEM2'
+    case 'TLEM2-CT'
         % ground-pelvis
         model.ground_pelvis.parent = eye(4);
         model.ground_pelvis.child = [   0.00784419 0.0684822 -0.997621 23.0776
@@ -184,7 +189,7 @@ switch model_name
             -0.627283 0.670454 -0.396243 -1051.9
             0 0 0 1 ];
         
-    case 'JIA'
+    case 'JIA-MRI'
         
         % ground-pelvis
         % copied from model

@@ -17,6 +17,7 @@
 % ----------------------------------------------------------------------- %
 % Plots a vertical line on all subplots presents in the figure identified
 % by the handle. Shades mean and std if V_value is a vector.
+% ----------------------------------------------------------------------- %
 function plotVerticalLineOnAllSubplots(figure_handle, V_value, varargin)
 
 if isempty(varargin)
