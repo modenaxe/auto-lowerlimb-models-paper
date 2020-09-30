@@ -62,7 +62,7 @@ for nb = 1:numel(cur_bone_set)
         
         figure('Name',['comparison of options-',cur_dataset])
         subplot(1,3,1);     quickPlotTriang(cur_triGeom); title(['full ',cur_bone_name])
-        subplot(1,3,2);     quickPlotTriang(part_bone); title(['proximal ',cur_bone_name])
+        subplot(1,3,2);     quickPlotTriang(part_bone); title([kwd,' ',cur_bone_name])
         subplot(1,3,3);     quickPlotTriang(unitedTibia); title(['epiphyses ',cur_bone_name])
         
         % only epiphysis
@@ -86,7 +86,7 @@ for nb = 1:numel(cur_bone_set)
         'VariableNames',{['full ',cur_bone_name], [kwd,' ',cur_bone_name], ['epiphysis ',cur_bone_name]},...
         'RowNames', {'LHDL-CT', 'TLEM-CT', 'ICL-MRI', 'JIA-MRI'})};
     
-    writetable(PCA_vs_Inertia_table{nb},fullfile(results_folder, [cur_bone,'_PCA_PIAs.xlsx']));
+%     writetable(PCA_vs_Inertia_table{nb},fullfile(results_folder, [cur_bone,'_PCA_PIAs.xlsx']));
     
     clear angle_PCA_Inertia angle_PCA_Inertia_partial angle_PCA_Inertia_united
     
