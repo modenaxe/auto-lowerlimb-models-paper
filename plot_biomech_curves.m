@@ -19,14 +19,19 @@
 % manual model simulations.
 % ----------------------------------------------------------------------- %
 clear;clc;fclose all;close all;
-addpath(genpath('./support_functions'));
+addpath(genpath('./support_functions_plots'));
 
 %---------------------------------------------------------------------------
 % folder where results are stored
-mat_summary_folder = './Dataset_Mat_Summaries';
+mat_summary_folder = './gait_simulations/Dataset_Mat_Summaries';
 % folder where to save the Figures
-figure_folder = 'Figures_4-5';
-% offset in the joint angles present in the manual model (visible from the
+figure_folder = 'results/Figures_4-5';
+
+% Inspection of the manual JIA-MRI model revealed that the model had 
+% 4.234 degrees offset at the ankle joint (so that the reference position 
+% was set at that value instead of 0 degrees), so we considered that in the
+% automatic model as well, as the model was modified after creating it.
+% Offset in the joint angles present in the manual model (visible from the
 % OpenSim GUI for example).
 manual_model_ankle_offset = 4.234;
 %---------------------------------------------------------------------------
