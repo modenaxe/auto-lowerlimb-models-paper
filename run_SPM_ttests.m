@@ -191,7 +191,7 @@ cur_res_table = table(report_corrcoeff(:,1), report_corrcoeff(:,2),...
 cur_res_table.Properties.RowNames = list_comparisons;
 
 % write results on xlsx file
-writetable(cur_res_table, [stats_results_folder,filesep,what_to_plot,'_stats.xlsx']);
+% writetable(cur_res_table, [stats_results_folder,filesep,what_to_plot,'_stats.xlsx']);
     
 % collect the tables with results stats
 stats_tables(n_plot_type) = {cur_res_table};
