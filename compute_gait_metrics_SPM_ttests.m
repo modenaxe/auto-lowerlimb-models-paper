@@ -15,15 +15,19 @@
 %    Author:   Luca Modenese,  2020                                       %
 %    email:    l.modenese@imperial.ac.uk                                  %
 % ----------------------------------------------------------------------- %
+% Inspection of the manual JIA-MRI model revealed that the model had 
+% 4.234 degrees offset at the ankle joint (so that the reference position 
+% was set at that value instead of 0 degrees), so we considered that in the
+% automatic model as well.
 clear;clc;fclose all;close all;
 addpath('./support_functions');
 
 %---------------------------------------------------------------------------
 % folder where results are stored
-mat_summary_folder = './Dataset_Mat_Summaries';
-stats_results_folder = './Stats_Results';
+mat_summary_folder = './gait_simulations/Dataset_Mat_Summaries';
+stats_results_folder = './results';
 % folder where to save the Figures
-figure_folder = 'Figures_supplem_SPM_stats';
+figure_folder = './results/Figures_S4-S8_SPM_stats';
 % axis labels details
 AxisFontSize = 12;
 AxisFontWeight = 'bold';
@@ -84,7 +88,7 @@ switch what_to_plot
                       'inversion(-)  eversion(+)','SPM \{ t \}'};
         title_set = {'Hip Flex/Extension Moment [Nm/kg]','Hip Ad/Abduction Moment [Nm/kg]',...
                      'Hip Int/External Rotation Moment [Nm/kg]','Knee Flex/Extension Moment [Nm/kg]',...
-                     'Ankle Dorsi/Planta Moment [Nm/kg]', 'Subtalar Eversion/Inversion [Nm/kg]'};
+                     'Ankle Dorsi/Plantar Moment [Nm/kg]', 'Subtalar Eversion/Inversion [Nm/kg]'};
 end
 
 % vector of toe offs from the simulated trials
@@ -187,11 +191,11 @@ cur_res_table = table(report_corrcoeff(:,1), report_corrcoeff(:,2),...
     report_RMSE(:,1), report_RMSE(:,2), report_clusters,...
     'VariableNames',{'corr_coeff (mean)', 'corr_coeff (std)', ...
     'p val (average)', 'p val (std)',...
-    'RMSE (mean)', 'RMSE (std)', 'SPM-Test difference(% gait cycle)'});
+    'RMSE (mean)', 'RMSE (std)', 'SPM-Test diff clusters(% gait cycle)'});
 cur_res_table.Properties.RowNames = list_comparisons;
 
 % write results on xlsx file
-% writetable(cur_res_table, [stats_results_folder,filesep,what_to_plot,'_stats.xlsx']);
+writetable(cur_res_table, [stats_results_folder,filesep,'gait_sims_',what_to_plot,'_stats.xlsx']);
     
 % collect the tables with results stats
 stats_tables(n_plot_type) = {cur_res_table};
