@@ -203,6 +203,8 @@ stats_tables(n_plot_type) = {cur_res_table};
 clear report_corrcoeff report_RMSE report_clusters
 end
 
+rmpath('./support_functions');
+
 % close all
 disp('----------')
 disp('Kinematics')

@@ -115,3 +115,5 @@ saveas(H_JMom, fullfile(figure_folder,'Figure5_kinetics_comparison.fig'));
 % free the memory
 delete(H_Kin); delete(H_JMom);
 clear H_Kin H_JMom
+
+rmpath(genpath('./support_functions_plots'));
