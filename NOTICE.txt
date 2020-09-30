@@ -29,8 +29,10 @@
 How to Acknowledge Us
 ---------------------
 If you use the functions included in this package, please acknowledge us 
-by citing the following paper:
+by citing the following preprint:
 
-Modenese L and Renault JB (2020). Automatic Generation of Personalized Models
- of the Lower Limb from Three-Dimensional Bone Geometries: A Validation Study. 
-Journal of Biomechanics, under review.
+Modenese L and Renault JB (2020). Automatic Generation of Personalised Models
+of the Lower Limb from Three-Dimensional Bone Geometries: A Validation Study.
+BioRxiv preprint, doi: https://doi.org/10.1101/2020.06.23.162727
+
+until we associate the manuscript to a journal publication.
