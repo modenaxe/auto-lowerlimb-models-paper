@@ -30,6 +30,15 @@ In order to use the content of this repository you will need to:
 3. set up the OpenSim 4.1 API for MATLAB. Required to run the provided scripts. Please refer to the OpenSim [documentation](https://simtk-confluence.stanford.edu/display/OpenSim/Scripting+with+Matlab).
 4. install the [SPM1D](http://spm1d.org/) MATLAB package for statistical parametric mapping (SPM). It is used to run the statistical analysis when comparing the gait simulations from automatic and manual models.
 5. (optional) [OpenSim 3.3](https://simtk.org/projects/opensim). This can be used for visualising the manual models. To install OpenSim 3.3 go to the `Download` page of the provided link and click on `Previous releases`, as shown in [this screenshot](https://github.com/modenaxe/3d-muscles/blob/master/images/get_osim3.3.PNG). No API installation required for OpenSim 3.3.
+6. clone this repository together with the STAPLE submodule using the following command on git:
+```bash
+git clone --recursive https://github.com/modenaxe/auto-lowerlimb-models-paper.git
+```
+or if you have cloned it without the recursive option please refer to [this post](https://stackoverflow.com/questions/25200231/cloning-a-git-repo-with-all-submodules) and use:
+```bash
+git submodule init
+git submodule update
+```
 
 
 # Contents
