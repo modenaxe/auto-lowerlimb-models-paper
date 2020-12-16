@@ -6,13 +6,13 @@ This repository contains the data, models and the MATLAB scripts to inspect and 
 @article{Modenese2020auto,
   title={Automatic Generation of Personalized Skeletal Models of the Lower Limb from Three-Dimensional Bone Geometries},
   author={Modenese, Luca and Renault, Jean-Baptiste},
-  journal={under review},
-  year={2020},
-  publisher={}
-  doi={}
+  journal={Journal of Biomechanics},
+  year={2020, accepted},
+  publisher={Elsevier}
+  doi={TBA}
 }
 ```
-The paper will be open access. For now it is available [as preprint](https://www.biorxiv.org/content/biorxiv/early/2020/06/23/2020.06.23.162727.full.pdf).
+The paper will be open access. It is also available [as preprint](https://www.biorxiv.org/content/biorxiv/early/2020/06/23/2020.06.23.162727.full.pdf).
 
 ## Brief summary of the publication
 In our manuscript: 
