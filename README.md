@@ -12,7 +12,7 @@ This repository contains the data, models and the MATLAB scripts to inspect and 
   doi={https://doi.org/10.1016/j.jbiomech.2020.110186}
 }
 ```
-The paper will be open access. It is also available [as preprint](https://www.biorxiv.org/content/biorxiv/early/2020/06/23/2020.06.23.162727.full.pdf).
+The paper will be open access but it is also available [as preprint](https://www.biorxiv.org/content/biorxiv/early/2020/06/23/2020.06.23.162727.full.pdf).
 
 ## Brief summary of the publication
 In our manuscript: 
