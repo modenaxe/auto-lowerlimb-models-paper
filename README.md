@@ -53,7 +53,7 @@ This repository includes:
 
 ![modelling_workflow](./images/datasets.png)
 
-# Visulizing the OpenSim models
+# Visualizing the OpenSim models
 
 ## Manual models
 The [manual models](/opensim_models) can be visualised with OpenSim 3.3. 
