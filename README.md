@@ -1,3 +1,15 @@
+# Table of Contents  <!-- omit in toc -->
+
+- [Overview](#overview)
+- [Brief summary of the publication](#brief-summary-of-the-publication)
+- [Requirements](#requirements)
+- [Contents](#contents)
+- [Visualizing the OpenSim models](#visualizing-the-opensim-models)
+  - [Manual models](#manual-models)
+  - [Automatic models](#automatic-models)
+- [Running the MATLAB scripts](#running-the-matlab-scripts)
+- [Current limitations to reproducibility](#current-limitations-to-reproducibility)
+
 # Overview
 
 This repository contains the data, models and the MATLAB scripts to inspect and reproduce the results of the following publication:
@@ -14,9 +26,9 @@ This repository contains the data, models and the MATLAB scripts to inspect and 
 ```
 The paper will be open access [from the publisher's website](https://doi.org/10.1016/j.jbiomech.2020.110186) but it is also available [as preprint](https://www.biorxiv.org/content/biorxiv/early/2020/06/23/2020.06.23.162727.full.pdf).
 
-## Brief summary of the publication
+# Brief summary of the publication
 In our manuscript: 
-* We presented a MATLAB toolbox called [STAPLE](https://github.com/modenaxe/msk-STAPLE) for creating lower extremity models of the lower limb from three-dimensional bone geometries in a fully automatic way. 
+* We presented a MATLAB toolbox called **STAPLE** for creating lower extremity models of the lower limb from three-dimensional bone geometries in a fully automatic way. STAPLE is openly developed [at this link](https://github.com/modenaxe/msk-STAPLE).
 * We described the algorithms for automatic processing of the lower limb bone geometries that are included in the STAPLE package.
 * We evaluated a workflow equivalent to the codified approach of [Modenese et al. (2018)](https://doi.org/10.1016/j.jbiomech.2018.03.039) by comparing lower limb models created following that methodology with the equivalente automatic workflow implemented in STAPLE. 
 * Finally, we presented some additional functionalities of STAPLE, including the extraction of articular surfaces and the possibility of streamlining the creation of skeletal models with the automatic technique for generating muscle anatomical models published by [Modenese and Kohout, 2020](http://link.springer.com/article/10.1007/s10439-020-02490-4).
