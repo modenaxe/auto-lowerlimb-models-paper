@@ -99,4 +99,4 @@ Other MATLAB scripts are provided in the `support_functions` and `support_functi
 # Current limitations to reproducibility
 * The `Miranda-femur` and `Miranda-tibia` algorithms are not available with this package but they can be obtained contacting directly the authors of [the related publication](https://doi.org/10.1016/j.jbiomech.2010.01.036).
 * The manual OpenSim models were generated using NMSBuilder v1.0. The NMSBuilder files are not shared because of their size (they include medical images). The complete NMSBuilder models can be obtained contacting the corresponding author of the publication.
-* The STAPLE pack is still in strong development, so some key documentation might be missing. Please refer to the examples included the main STAPLE repository for now.
+* The STAPLE pack is in strong development, but in this repository we froze the version used for the manuscript through the Git submodule. The latest **development** version of STAPLE will always be available [at its repository](https://github.com/modenaxe/msk-STAPLE), while the latest **stable** version will be shared through its [SimTK project page](https://simtk.org/projects/msk-staple).
