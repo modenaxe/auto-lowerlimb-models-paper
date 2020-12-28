@@ -1,18 +1,19 @@
-% STAPLE MATLAB package: NOTICE
+% auto-lowerlimb-models-paper package: NOTICE
 % ---------------------------------------------------------------------------
 %
-% The STAPLE (Shared Tools for Automatic Personalized Lower Extremity 
-% modelling) MATLAB atlab package uses the open source Apache 2.0 license 
-% (below), making it suitable for any use commercial, % government, academic,
-% or personal. Please see the notes below the license for more information 
-% about how to acknowledge us.
+% The auto-lowerlimb-models-paper package is shared under the open source 
+% Apache 2.0 license (below), making it suitable for any use commercial, 
+% government, academic, or personal. Please see the notes below the license 
+% for more information about how to acknowledge us.
+%
+% PLEASE NOTE THAT THE STAPLE TOOLBOX IS RELEASED UNDER A DIFFERENT LICENSE.
+% SEE: https://github.com/modenaxe/msk-STAPLE
 %
 % -------------------------------------------------------------------------- %
-% STAPLE: Shared Tools for Automatic Personalized Lower Extremity modelling  %
-%                          MATLAB package                                    %
+% auto-lowerlimb-models-paper MATLAB package                                 %
 % -------------------------------------------------------------------------- %
 %                                                                            %
-% Copyright (c) 2020 Modenese L., Renault J.-B.   				     %
+% Copyright (c) 2020 Modenese L., Renault J.-B.   				             %
 %                                                                            %
 % Licensed under the Apache License, Version 2.0 (the "License").            % 
 % You may not use this toolbox except in compliance with the License. You may%
@@ -28,11 +29,9 @@
 
 How to Acknowledge Us
 ---------------------
-If you use the functions included in this package, please acknowledge us 
-by citing the following preprint:
+If you use the functions included in this package, including the STAPLE toolbox
+please acknowledge us by citing the following paper:
 
-Modenese L and Renault JB (2020). Automatic Generation of Personalised Models
-of the Lower Limb from Three-Dimensional Bone Geometries: A Validation Study.
-BioRxiv preprint, doi: https://doi.org/10.1101/2020.06.23.162727
-
-until we associate the manuscript to a journal publication.
+Modenese L and Renault JB (2021). Automatic Generation of Personalised Skeletal
+Models of the Lower Limb from Three-Dimensional Bone Geometries.
+Journal of Biomechanics, doi: https://doi.org/10.1016/j.jbiomech.2020.110186
