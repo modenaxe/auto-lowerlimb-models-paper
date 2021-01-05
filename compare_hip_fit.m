@@ -23,7 +23,8 @@
 % ----------------------------------------------------------------------- %
 
 clear; clc; close all
-addpath('support_functions');
+addpath(genpath('msk-STAPLE/STAPLE'));
+addpath('support_functions')
 
 % SETTINGS
 %---------------------------
@@ -81,3 +82,7 @@ metric_table.Properties.RowNames = dataset_set;
 clc
 disp(res_table);
 disp(metric_table)
+
+% remove paths
+rmpath(genpath('msk-STAPLE/STAPLE'));
+rmpath('support_functions')

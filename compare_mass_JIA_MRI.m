@@ -33,6 +33,7 @@
 % ----------------------------------------------------------------------- %
 
 import org.opensim.modeling.*
+addpath(genpath('msk-STAPLE/STAPLE'));
 
 % model folders
 model_folder = 'opensim_models';
@@ -73,3 +74,6 @@ for nb = 0:N_bodies-1
     disp(['diff (aut-man) [m]: ', num2str(osimVec3ToArray(curr_auto_body.get_mass_center())-osimVec3ToArray(curr_manu_body.get_mass_center()))])
     disp('----------------------')
 end
+
+% remove STAPLE from path
+rmpath(genpath('msk-STAPLE/STAPLE'));

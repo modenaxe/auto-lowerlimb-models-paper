@@ -155,3 +155,5 @@ for nb = 1:numel(bone_set)
         clear orig_diff_opt2 orig_dist_opt2 ang_diff_opt2
 end
 
+% remove paths
+rmpath(genpath('msk-STAPLE/STAPLE'));

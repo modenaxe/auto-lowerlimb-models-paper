@@ -23,6 +23,7 @@
 % ----------------------------------------------------------------------- %
 clearvars;  close all
 addpath('support_functions');
+addpath(genpath('msk-STAPLE/STAPLE'));
 
 % SETTINGS
 %---------------------------
@@ -103,3 +104,4 @@ for nt = 1:N_datasets
 end
 
 rmpath('support_functions');
+rmpath(genpath('msk-STAPLE/STAPLE'));

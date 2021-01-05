@@ -20,7 +20,7 @@
 % was set at that value instead of 0 degrees), so we considered that in the
 % automatic model as well.
 clear;clc;fclose all;close all;
-addpath('./support_functions');
+addpath('./support_functions_plots');
 
 %---------------------------------------------------------------------------
 % folder where results are stored
@@ -203,7 +203,7 @@ stats_tables(n_plot_type) = {cur_res_table};
 clear report_corrcoeff report_RMSE report_clusters
 end
 
-rmpath('./support_functions');
+rmpath('./support_functions_plots');
 
 % close all
 disp('----------')
