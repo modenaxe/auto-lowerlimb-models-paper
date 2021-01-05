@@ -34,6 +34,7 @@
 
 import org.opensim.modeling.*
 addpath(genpath('msk-STAPLE/STAPLE'));
+addpath('support_functions');
 
 % model folders
 model_folder = 'opensim_models';
@@ -77,3 +78,4 @@ end
 
 % remove STAPLE from path
 rmpath(genpath('msk-STAPLE/STAPLE'));
+rnpath('support_functions');
