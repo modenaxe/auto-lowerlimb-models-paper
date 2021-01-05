@@ -78,4 +78,4 @@ end
 
 % remove STAPLE from path
 rmpath(genpath('msk-STAPLE/STAPLE'));
-rnpath('support_functions');
+rmpath('support_functions');
